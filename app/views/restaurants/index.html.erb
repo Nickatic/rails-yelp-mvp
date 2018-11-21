@@ -1,0 +1,21 @@
+<div class="index-title-wrapper">
+  <div class="container">
+    <div class="index-title">
+        <h1>Restaurants</h1>
+        <%= link_to "Create a restaurant", new_restaurant_path %>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <% @restaurants.each do |restaurant| %>
+  <div class="col-xs-6 text-center">
+    <div class="restaurant">
+      <h2> <%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+      <strong><%= restaurant.category %></strong><br>
+    </div>
+  </div>
+  <% end %>
+</div>
+

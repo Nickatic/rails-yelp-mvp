@@ -1,0 +1,32 @@
+<div class="container">
+  <h1 class="text-center"><%= @restaurant.name %></h1>
+  <div class="restaurant-header">
+    <div class="infos">
+      <strong>Category : <%= @restaurant.category %></strong><br>
+      <em>Address : <%= @restaurant.address %></em>
+      <p>Phone number : <%= @restaurant.phone_number %></p>
+    </div>
+    <div class="links">
+      <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %> <br>
+      <%= link_to "Back to the list", restaurants_path %>
+    </div>
+  </div>
+
+
+
+  <div class="reviews">
+    <h2>Reviews</h2>
+    <% if  @restaurant.reviews.count == 0%>
+      <p>No reviews yet</p>
+    <% end %>
+    <% @restaurant.reviews.each do |review| %>
+    <h3>
+      <%= review.content %>
+      <% review.rating.times do %>
+        <i class="fas fa-star"></i>
+      <% end %>
+
+    </h3>
+    <% end %>
+  </div>
+</div>
